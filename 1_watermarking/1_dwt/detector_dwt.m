@@ -1,4 +1,5 @@
 clear all;
+clc;
 
 img = imread("watermark.tif"); % load watermarked image
 load('watermark.mat'); % load watermark

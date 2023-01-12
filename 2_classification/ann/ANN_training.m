@@ -41,7 +41,7 @@ net.layers{1}.transferFcn='tansig';  % transfer function for the neurons in firs
 net.layers{2}.transferFcn='tansig';  % transfer function for the neurons in second hidden layer is tangent sigmoid.
 net.layers{3}.transferFcn='purelin';  % transfer function for the neurons in the output layer is linear.
 net.trainParam.epochs = 40;  % set to 40 the maximum number of times the training samples will be used to train the network
-net = train(net,input_training_set,double(Target)); % train the network with the training samples.
+trained_model = train(net,input_training_set,double(Target)); % train the network with the training samples.
 
 
     

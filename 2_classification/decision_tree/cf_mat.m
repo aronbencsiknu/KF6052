@@ -13,7 +13,6 @@ function [tp,fp,tn,fn] = cf_mat(ground_truth, predicted)
         else
             fn = fn + 1;
         end
-
     end
 end
 

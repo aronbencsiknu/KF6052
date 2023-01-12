@@ -29,21 +29,19 @@ input_training_set=input_training_set'; % get the right arrangement for the inpu
 output_training_set=output_training_set'; % get the right arrangement for the output set
 
 
-
 Target=strcmp('text',output_training_set); % Now, Target has logical values (0 and 1). This has to be converted into double.
 
 
 rng('default'); % set the random number generator to its default state
 rng(44); % this is an integer value to initialise the random number generator
 
-%net = feedforwardnet([20 5]); % create a network for non-linear classification, 20  neurons in first hidden layer 
-net = perceptron; % create a network for non-linear classification, 20  neurons in first hidden layer 
-% and 5 in the second.
+net = perceptron; % create a linear perceptron classifier
+
 %net.layers{1}.transferFcn='tansig';  % transfer function for the neurons in first hidden layer is tangent sigmoid.
 %net.layers{2}.transferFcn='tansig';  % transfer function for the neurons in second hidden layer is tangent sigmoid.
 %net.layers{3}.transferFcn='purelin';  % transfer function for the neurons in the output layer is linear.
 net.trainParam.epochs = 40;  % set to 40 the maximum number of times the training samples will be used to train the network
-net = train(net,input_training_set,double(Target)); % train the network with the training samples.
+trained_model = train(net,input_training_set,double(Target)); % train the network with the training samples.
 
 
     

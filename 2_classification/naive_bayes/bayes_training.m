@@ -35,8 +35,8 @@ Target=strcmp('text',output_training_set); % Now, Target has logical values (0 a
 rng('default'); % set the random number generator to its default state
 rng(44); % this is an integer value to initialise the random number generator
 
-net = fitcnb(input_training_set,output_training_set); % create a network for non-linear classification, 20  neurons in first hidden layer 
-% and 5 in the second.
+trained_model = fitcnb(input_training_set,Target); % create a naive Bayes classifier
+
 %net.layers{1}.transferFcn='tansig';  % transfer function for the neurons in first hidden layer is tangent sigmoid.
 %net.layers{2}.transferFcn='tansig';  % transfer function for the neurons in second hidden layer is tangent sigmoid.
 %net.layers{3}.transferFcn='purelin';  % transfer function for the neurons in the output layer is linear.

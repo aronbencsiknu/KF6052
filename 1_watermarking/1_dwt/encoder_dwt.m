@@ -22,9 +22,11 @@ dwt_inverse_L1 = idwt2(dwt_inverse_L2, h1, v1, d1, "db2", "mode", "per");   % sp
 
 dwt_inverse = uint8(dwt_inverse_L1); % convert values to 8bit unsigned integers
 
-dwt_inverse = circshift(dwt_inverse,[1,1]);
+% manipulations
+%dwt_inverse = circshift(dwt_inverse,[1,1]);
 %filter_size = [3,3];
 %ave_filter = fspecial('average',filter_size);
 %dwt_inverse = imfilter(dwt_inverse, ave_filter);
+
 imshow(dwt_inverse);
 imwrite(dwt_inverse, "watermark.tif"); % save watermarked image

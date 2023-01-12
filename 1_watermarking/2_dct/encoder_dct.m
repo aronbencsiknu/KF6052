@@ -25,11 +25,11 @@ dct(65:128, 1:64) = area3_w;
 dct_inverse = idct2(dct); % inverse Discrete Cosine Transform
 dct_inverse = uint8(dct_inverse); % convert values to 8bit unsigned integers
 
-%dct_inverse = circshift(dct_inverse,[2,2]);
-%filter_size = [10,10];
+% manipulations
+%dwt_inverse = circshift(dwt_inverse,[1,1]);
+%filter_size = [3,3];
 %ave_filter = fspecial('average',filter_size);
-%dct_inverse = imfilter(dct_inverse, ave_filter);
+%dwt_inverse = imfilter(dwt_inverse, ave_filter);
 
-
-
+imshow(dct_inverse);
 imwrite(dct_inverse, "watermark.tif"); % save watermarked image

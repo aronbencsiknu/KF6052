@@ -8,20 +8,18 @@ ground_truth = [];
 
 % load images into test_set
 for i=1:Number_test_images
-
     Image=imread(['test_images\' folder_test(i+2).name]);
     test_set=[test_set;get_featureVector(Image)'];
-
     if folder_test(i+2).name(1)=="t"
         ground_truth(i)=1;
     else
         ground_truth(i)=0;
     end
-
 end
 
 test_set = test_set';
-predicted = round(net(test_set));
+predicted = round(trained_model(test_set));
+
 
 % generate true positive, false positive, true negative and false negative
 % values
@@ -31,8 +29,6 @@ fpr = fp / (fp + tn); % false positive rate
 fnr = fn/(fn + tp); % false negative rate
 error = (fpr + fnr) / 2; % error
 
-disp("Artificial Neural Network (ANN)");
-disp("-----------");
 disp(strcat("False Positive Rate: ", sprintf('%.3f',fpr)));
 disp(strcat("False Negative Rate: ", sprintf('%.3f',fnr)));
 disp(strcat("Error: ",sprintf('%.3f',error)));
